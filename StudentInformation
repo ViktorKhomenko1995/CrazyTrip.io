@@ -1,0 +1,25 @@
+static void Main(string[] args)
+        {
+
+            string studentName;
+            int age;
+            float height;
+            string hobby;
+
+
+            Console.WriteLine("Здравствуйте, мне нужно что бы вы ответили на несколько вопросов о себе.");
+            Console.Write("Как вас зовут?");
+            studentName = Console.ReadLine();
+            Console.Write("Сколько вам лет?");
+            age = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Какой у вас рост?");
+            height = Convert.ToSingle(Console.ReadLine());
+            Console.Write("Назовите ваше хоби?");
+            hobby = Console.ReadLine();
+
+            Console.WriteLine($"Информация о студенте. Имя: {studentName} Возраст: {age}  Рост: {height}  Хобби: {hobby} ");
+           
+           
+         
+
+        }
