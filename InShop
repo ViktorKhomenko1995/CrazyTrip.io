@@ -5,17 +5,17 @@
 
             int myGold;
             int priceCrystal = 10;
-            int crystalCount;
+            int amountCrystal;
 
 
             Console.Write("Покупатель: Сегодня я куплю кристаллы,на это уменя есть не много золота");
             myGold = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Продавець: Только сегодня, Акция  кристаллы по  "  + priceCrystal + " Золотых монет");
             Console.Write("Продавець: Сколько кристалов желаете купить?");
-            crystalCount = Convert.ToInt32(Console.ReadLine());
+            amountCrystal = Convert.ToInt32(Console.ReadLine());
 
             myGold -= crystalCount * priceCrystal;
-            Console.WriteLine(" Сегодня я смог купить " + crystalCount + " Кристаллов" + " И " + myGold + " Золотых монет осталось");
+            Console.WriteLine(" Сегодня я смог купить " + amountCrystal + " Кристаллов" + " И " + myGold + " Золотых монет осталось");
            
 
         }
