@@ -1,0 +1,10 @@
+int _age = 18;
+int _bloodGroup = 2;
+float _height = 176.3f;
+float  _weight = 76.5f; 
+float _sizeShoe = 41.5f;
+bool _isMan = true;
+bool _isStrong = true;
+string  _myJobs = ("Моя работа Game Developers");
+string _familiStatus = ("Женат");
+string _myFear = ("Мои страхи,это пауки");
