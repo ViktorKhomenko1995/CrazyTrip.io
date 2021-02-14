@@ -9,7 +9,7 @@
             Console.Write("Укажите количество пациентов к вам на прием?");
             amountVisitors = Convert.ToInt32(Console.ReadLine());
             durationOfAllAdmission = amountVisitors * timePatientExamination;
-            hoursToEndOfWork = durationOfAllAdmission / 60;
-            minutesToEndOfWork = durationOfAllAdmission % 60;
-            Console.WriteLine($"Ваше рабочее время закончиться через : {hoursToEndOfWork} Часа {minutesToEndOfWork} Минут");
+            hoursToEndOfJob = durationOfAllAdmission / 60;
+            minutesToEndOfJob = durationOfAllAdmission % 60;
+            Console.WriteLine($"Ваше рабочее время закончиться через : {hoursToEndOfJob} Часа {minutesToEndOfJob} Минут");
         }
