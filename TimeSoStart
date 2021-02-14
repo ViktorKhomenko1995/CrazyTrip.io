@@ -1,0 +1,9 @@
+static void Main(string[] args)
+        {
+            int timeToStart = 10;
+
+            while(timeToStart-- > 0)
+            {
+                Console.WriteLine("Время до старта " + timeToStart );    
+            }
+        }
