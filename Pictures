@@ -1,17 +1,11 @@
 static void Main(string[] args)
         {
-
-
+       
             int amountPictures = 52;
             int picturesInLine = 3;
-
             int fullLine;
             int remainingPictures;
-
-
-            fullLine = amountPictures / 3;
-            remainingPictures = fullLine % 3;
-            Console.WriteLine($" Полных линий {fullLine} Остаток изображений {remainingPictures}");
-            
-
+            fullLine = amountPictures / picturesInLine;
+            remainingPictures = fullLine % picturesInLine;
+            Console.WriteLine($" Полных линий {fullLine} Остаток изображений {remainingPictures}");      
         }
