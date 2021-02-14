@@ -5,6 +5,7 @@ static void Main(string[] args)
             int picturesInLine = 3;
             int fullLine;
             int remainingPictures;
+            
             fullLine = amountPictures / picturesInLine;
             remainingPictures = fullLine % picturesInLine;
             Console.WriteLine($" Полных линий {fullLine} Остаток изображений {remainingPictures}");      
