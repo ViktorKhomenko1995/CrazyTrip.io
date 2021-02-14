@@ -3,8 +3,8 @@
             int amountVisitors;
             int timePatientExamination = 10;
             int durationOfAllAdmission;
-            int hoursToEndOfWork;
-            int minutesToEndOfWork;
+            int hoursToEndOfJob;
+            int minutesToEndOfJob;
 
             Console.Write("Укажите количество пациентов к вам на прием?");
             amountVisitors = Convert.ToInt32(Console.ReadLine());
