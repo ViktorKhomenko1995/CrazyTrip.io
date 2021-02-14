@@ -1,0 +1,10 @@
+ static void Main(string[] args)
+        {
+            int pushUpPlan = 98;
+
+            for (int i = 7; i <= pushUpPlan; i += 7)
+            {
+                Console.WriteLine("Цель:Сделать: " + pushUpPlan + " отжиманий за неделю:" + " Сделано количество отжиманий за каждую новую неделю: " + i);
+                
+            }
+        }
