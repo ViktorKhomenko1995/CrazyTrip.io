@@ -1,26 +1,15 @@
  static void Main(string[] args)
         {
-
-
             int amountVisitors;
-            int timeSurvey = 10;
-
-            int time;
-            int chas;
+            int timePatientExamination = 10;
+            int workTime;
+            int hours;
             int minutes;
 
-
-
-            Console.Write("Укажите количество людей в очереди");
+            Console.Write("Укажите количество пациентов к вам на прием?");
             amountVisitors = Convert.ToInt32(Console.ReadLine());
-
-
-            time = countVisitors * timeSurvey;
-            chas = time / 60;
-            minutes = time % 60;
-
-            Console.WriteLine($"Ваша очередь наступит через: {chas} Часа {minutes} Минут");
-           
-
-
+            workTime = amountVisitors * timePatientExamination;
+            hours = workTime / 60;
+            minutes = workTime % 60;
+            Console.WriteLine($"Ваше рабочее время закончиться через : {hours} Часа {minutes} Минут");           
         }
