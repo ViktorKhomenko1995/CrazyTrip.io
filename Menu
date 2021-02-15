@@ -52,8 +52,6 @@ static void Main(string[] args)
                 break;
                 default:
                 Console.WriteLine("Неверный ввод!");
-                break;
-               
+                break;   
             }
-          
         }
