@@ -1,0 +1,59 @@
+static void Main(string[] args)
+        {
+            string userName;
+            int userAge;
+            string userPassword;
+            int choiceCloseAndOpenProgram;
+            int choiceColor;
+            
+            Console.WriteLine("Мы рады приветствовать вас на нашем сайте.Для завершения настроек нужно закончить регестрацию! ");
+            Console.WriteLine("Чтобы начать регистрацию,нажмите: 1");
+            Console.WriteLine("Для отмены регистрации нажмите: 2");
+            choiceCloseAndOpenProgram = Convert.ToInt32(Console.ReadLine());
+            switch (choiceCloseAndOpenProgram)
+            {
+                case 1:
+                Console.Write("1.Введите ваше имя: ");
+                userName = Console.ReadLine();
+                Console.Write("2.Укажите свой возраст: ");
+                userAge = Convert.ToInt32(Console.ReadLine());
+                Console.Write("3.Введите пароль: ");
+                userPassword = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("4.Выберите цвет консоли:");
+                Console.WriteLine("Красный: 1");
+                Console.WriteLine("Синий: 2");
+                Console.WriteLine("Зеленый: 3");
+                choiceColor = Convert.ToInt32(Console.ReadLine());
+                if(choiceColor == 1)
+                {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Информация о вас: Имя {userName} Возраст {userAge}  Пароль {userPassword}");
+                Console.WriteLine("Регистрация окончена успешно,для выхода с программы нажмите любую клавишу");
+                }
+                else if(choiceColor == 2)
+                {
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"Информация о вас: Имя {userName} Возраст {userAge}  Пароль {userPassword}");
+                Console.WriteLine("Регистрация окончена успешно,для выхода с программы нажмите любую клавишу");
+                }
+                else if(choiceColor == 3)
+                {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Информация о вас: Имя {userName} Возраст {userAge}  Пароль {userPassword}");
+                Console.WriteLine("Регистрация окончена успешно,для выхода с программы нажмите любую клавишу");
+                }
+                else
+                {
+                Console.WriteLine("Неверный ввод");
+                }
+                break;
+                case 2:
+                Console.WriteLine("Выход");
+                break;
+                default:
+                Console.WriteLine("Неверный ввод!");
+                break;
+               
+            }
+          
+        }
