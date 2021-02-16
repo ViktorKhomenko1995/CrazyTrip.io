@@ -1,45 +1,66 @@
-static void Main(string[] args)
+ static void Main(string[] args)
         {
-            float countRub = 1000;
-            float countUsd = 25;
-            float countUk = 700;
-            float rubToUsd = 0.01f, rubToUk = 0.36f;
-            float usdToRub = 69f,  usdToUk = 27.6f;
-            float ukToRub = 2.5f,  ukToUsd = 0.04f;
+            float rubleCount = 1000;
+            float dollarsCount = 25;
+            float euroCount = 15;
+
+            float rubToUsd = 0.02f, rubToEuro = 0.01f;
+            float usdToRub = 69f,  usdToEuro = 0.82f;
+            float euroToRub = 88.94f,  euroToUsd = 1.21f;
+
             int currencySelection;
             int exchangeTo;
             float amountMoneyChange;
-           
+            string exitButton;
+                      
             Console.WriteLine("Мы рады приветствовать вас в нашем обменнике валют!");
-            Console.WriteLine($"Ваш баланс:  {countRub} Рублей {countUsd} Долларов {countUk} Гривен");
+            Console.WriteLine($"Ваш баланс:  {rubleCount} Рублей {dollarsCount} Долларов {euroCount}  Евро");
             Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
             Console.WriteLine("Рубли: Нажмите 1 ");
             Console.WriteLine("Доллары: Нажмите 2 ");
-            Console.WriteLine("Гривны: Нажмите 3 ");
+            Console.WriteLine("Евро: Нажмите 3 ");
             currencySelection = Convert.ToInt32(Console.ReadLine());
             switch (currencySelection)
             {
                 case 1:
                 Console.WriteLine("Укажите на какую валюту вы хотите обменять?");
                 Console.WriteLine("Доллары: Нажмите 1 ");
-                Console.WriteLine("Гривны: Нажмите 2 ");
+                Console.WriteLine("Евро: Нажмите 2 ");
                 exchangeTo = Convert.ToInt32(Console.ReadLine());
                 if(exchangeTo == 1)
                 {
                 Console.WriteLine("Укажите количество Рублей на обмен? ");
                 amountMoneyChange = Convert.ToSingle(Console.ReadLine());
-                countRub -= amountMoneyChange;
-                countUsd += amountMoneyChange *  rubToUsd;
-                Console.WriteLine($"На вашем счету Рублей {countRub}  Долларов {countUsd} ");
-                Console.WriteLine("Для выхода нажмите любую клавишу!");
-                }else if(exchangeTo == 2)
+                if(rubleCount >= amountMoneyChange)
+                {
+                rubleCount -= amountMoneyChange;
+                dollarsCount += amountMoneyChange * rubToUsd;
+                Console.WriteLine($"На вашем счету Рублей {rubleCount}  Долларов {dollarsCount} ");
+                Console.WriteLine("Для выхода c программы введите: Exit ");
+                exitButton = Console.ReadLine();        
+                }
+                else
+                {
+                Console.WriteLine("У вас недостаточно средств для обмена!");
+                }     
+                }
+                else if(exchangeTo == 2)
                 {
                 Console.WriteLine("Укажите количество Рублей на обмен? ");
                 amountMoneyChange = Convert.ToSingle(Console.ReadLine());
-                countRub -= amountMoneyChange;
-                countUk += amountMoneyChange * rubToUk;
-                Console.WriteLine($"На вашем счету Рублей {countRub}  Гривен {countUk} ");
-                Console.WriteLine("Для выхода нажмите любую клавишу!");
+                if(rubleCount >= amountMoneyChange)
+                {
+                rubleCount -= amountMoneyChange;
+                euroCount += amountMoneyChange * rubToEuro;
+                Console.WriteLine($"На вашем счету Рублей {rubleCount}  Евро {euroCount} ");
+                Console.WriteLine("Для выхода c программы введите: Exit ");
+                exitButton = Console.ReadLine();
+                }
+                else
+                {
+                Console.WriteLine("У вас недостаточно средств для обмена!");
+                Console.ReadKey();
+                }
                 }
                 else
                 {
@@ -49,25 +70,41 @@ static void Main(string[] args)
                 case 2:
                 Console.WriteLine("Укажите на какую валюту вы хотите обменять?");
                 Console.WriteLine("Рубли: Нажмите 1 ");
-                Console.WriteLine("Гривны: Нажмите 2 ");
+                Console.WriteLine("Евро: Нажмите 2 ");
                 exchangeTo = Convert.ToInt32(Console.ReadLine());
                 if (exchangeTo == 1)
                 {
                 Console.WriteLine("Укажите количество Доллраво на обмен? ");
                 amountMoneyChange = Convert.ToSingle(Console.ReadLine());
-                countUsd -= amountMoneyChange;
-                countRub += amountMoneyChange * usdToRub;
-                Console.WriteLine($"На вашем счету Долларов {countUsd}  Долларов {countRub} ");
-                Console.WriteLine("Для выхода нажмите любую клавишу!");
+                if(dollarsCount >= amountMoneyChange)
+                {
+                dollarsCount -= amountMoneyChange;
+                rubleCount += amountMoneyChange * usdToRub;
+                Console.WriteLine($"На вашем счету Долларов {dollarsCount}  Рублей {rubleCount} ");
+                Console.WriteLine("Для выхода c программы введите: Exit ");
+                exitButton = Console.ReadLine();
+                }
+                else
+                {
+                Console.WriteLine("У вас недостаточно средств для обмена!");
+                }
                 }
                 else if (exchangeTo == 2)
                 {
                 Console.WriteLine("Укажите количество Доллраво на обмен? ");
                 amountMoneyChange = Convert.ToSingle(Console.ReadLine());
-                countUsd -= amountMoneyChange;
-                countRub += amountMoneyChange * usdToUk;
-                Console.WriteLine($"На вашем счету Долларов {countUsd}  Гривен {countRub} ");
-                Console.WriteLine("Для выхода нажмите любую клавишу!");
+                if(dollarsCount >= amountMoneyChange)
+                {
+                dollarsCount -= amountMoneyChange;
+                euroCount += amountMoneyChange * usdToEuro;
+                Console.WriteLine($"На вашем счету Долларов {dollarsCount}  Евро {euroCount} ");
+                Console.WriteLine("Для выхода c программы введите: Exit ");
+                exitButton = Console.ReadLine();
+                }
+                else
+                {
+                Console.WriteLine("У вас недостаточно средств для обмена!");
+                }
                 }
                 else
                 {
@@ -81,21 +118,37 @@ static void Main(string[] args)
                 exchangeTo = Convert.ToInt32(Console.ReadLine());
                 if (exchangeTo == 1)
                 {
-                Console.WriteLine("Укажите количество Гривен на обмен? ");
+                Console.WriteLine("Укажите количество Евро на обмен? ");
                 amountMoneyChange = Convert.ToSingle(Console.ReadLine());
-                countUk -= amountMoneyChange;
-                countRub += amountMoneyChange * ukToRub;
-                Console.WriteLine($"На вашем счету Гривен {countUk}  Долларов {countRub} ");
-                Console.WriteLine("Для выхода нажмите любую клавишу!");
+               if(euroCount >= amountMoneyChange)
+                {
+                euroCount -= amountMoneyChange;
+                rubleCount += amountMoneyChange * euroToRub;
+                Console.WriteLine($"На вашем счету Евро {euroCount}  Рублей {rubleCount} ");
+                Console.WriteLine("Для выхода c программы введите: Exit ");
+                exitButton = Console.ReadLine();
+                }
+                else
+                {
+                Console.WriteLine("У вас недостаточно средств для обмена!");
+                }
                 }
                 else if (exchangeTo == 2)
                 {
-                Console.WriteLine("Укажите количество Гривен на обмен? ");
+                Console.WriteLine("Укажите количество Евро на обмен? ");
                 amountMoneyChange = Convert.ToSingle(Console.ReadLine());
-                countUk -= amountMoneyChange;
-                countUsd += amountMoneyChange * ukToUsd;
-                Console.WriteLine($"На вашем счету Гривен {countUk}  Гривен {countUsd} ");
-                Console.WriteLine("Для выхода нажмите любую клавишу!");
+                if(euroCount >= amountMoneyChange)
+                {
+                euroCount -= amountMoneyChange;
+                dollarsCount += amountMoneyChange * euroToUsd;
+                Console.WriteLine($"На вашем счету Евро {euroCount}  Долларов {dollarsCount} ");
+                Console.WriteLine("Для выхода c программы введите: Exit ");
+                exitButton = Console.ReadLine();
+                }
+                else
+                {
+                Console.WriteLine("У вас недостаточно средств для обмена!");
+                }
                 }
                 else
                 {
