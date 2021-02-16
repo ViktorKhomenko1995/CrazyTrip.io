@@ -1,0 +1,12 @@
+ static void Main(string[] args)
+        {
+            string userName;
+            string userSign;
+            
+            Console.WriteLine("Здравствуйте,введите пожалуйста:");
+            Console.Write("Ваше имя: ");
+            userName = Console.ReadLine();
+            Console.Write("Ведите  любой символ: ");
+            userSign = Console.ReadLine();
+            Console.WriteLine($"{userSign}{userSign}{userSign}{userSign}{userSign}{userSign}\n{userSign}{userName}{userSign}\n{userSign}{userSign}{userSign}{userSign}{userSign}{userSign}");
+        }
