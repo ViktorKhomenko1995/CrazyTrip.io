@@ -107,7 +107,6 @@ static void Main(string[] args)
                         break;
                     default:
                         Console.WriteLine("Ошибка ввода!");
-                        isChange = false;
                         break;                      
                 }
                 Console.ReadKey();
