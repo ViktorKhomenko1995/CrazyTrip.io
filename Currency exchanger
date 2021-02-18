@@ -4,24 +4,20 @@ static void Main(string[] args)
             float dollarsCount = 25;
             float euroCount = 15;
 
-            float rubToUsd = 0.02f, rubToEuro = 0.01f;
-            float usdToRub = 69f, usdToEuro = 0.82f;
-            float euroToRub = 88.94f, euroToUsd = 1.21f;
+            float rublesToDollars = 0.02f, rublesToEuro = 0.01f;
+            float dollarsToRubles = 69f, dollarsToEuro = 0.82f;
+            float ouroToRubles = 88.94f, euroToDollars = 1.21f;
 
             int currencySelection;
             int exchangeTo;
             float amountMoneyChange;
             bool isChange = true;
-
-            Console.WriteLine("Мы рады приветствовать вас в нашем обменнике валют!");
-            Console.WriteLine($"Ваш баланс:  {rubleCount} Рублей {dollarsCount} Долларов {euroCount}  Евро");
-            Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
-            Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
-            currencySelection = Convert.ToInt32(Console.ReadLine());
-
+                    
             while (isChange)
             {
-
+                Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
+                Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
+                currencySelection = Convert.ToInt32(Console.ReadLine());
                 switch (currencySelection)
                 {
                     case 1:
@@ -36,37 +32,25 @@ static void Main(string[] args)
                             if (rubleCount >= amountMoneyChange)
                             {
                                 rubleCount -= amountMoneyChange;
-                                dollarsCount += amountMoneyChange * rubToUsd;
-                                Console.WriteLine($"На вашем счету Рублей {rubleCount}  Долларов {dollarsCount} ");
-                                Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
-                                Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
-                                currencySelection = Convert.ToInt32(Console.ReadLine());
-
+                                dollarsCount += amountMoneyChange * rublesToDollars;
+                                Console.WriteLine($"На вашем счету Рублей {rubleCount}  Долларов {dollarsCount} ");                               
                             }
-
                         }
                         else if (exchangeTo == 2)
                         {
                             Console.WriteLine("Укажите количество Рублей на обмен? ");
                             amountMoneyChange = Convert.ToSingle(Console.ReadLine());
                             rubleCount -= amountMoneyChange;
-                            euroCount += amountMoneyChange * rubToEuro;
-                            Console.WriteLine($"На вашем счету Рублей {rubleCount}  Евро {euroCount} ");
-                            Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
-                            Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
-                            currencySelection = Convert.ToInt32(Console.ReadLine());
-
+                            euroCount += amountMoneyChange * rublesToEuro;
+                            Console.WriteLine($"На вашем счету Рублей {rubleCount}  Евро {euroCount} ");                                                                         
                         }
                         else
                         {
                             Console.WriteLine("Ошибка ввода!");
                             isChange = false;
                         }
-
                         break;
-
                     case 2:
-
                         Console.WriteLine("Укажите на какую валюту вы хотите обменять?");
                         Console.WriteLine("Рубли: Нажмите 1 ");
                         Console.WriteLine("Евро: Нажмите 2 ");
@@ -78,12 +62,8 @@ static void Main(string[] args)
                             if (dollarsCount >= amountMoneyChange)
                             {
                                 dollarsCount -= amountMoneyChange;
-                                rubleCount += amountMoneyChange * usdToRub;
-                                Console.WriteLine($"На вашем счету Долларов {dollarsCount}  Рублей {rubleCount} ");
-                                Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
-                                Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
-                                currencySelection = Convert.ToInt32(Console.ReadLine());
-
+                                rubleCount += amountMoneyChange * dollarsToRubles;
+                                Console.WriteLine($"На вашем счету Долларов {dollarsCount}  Рублей {rubleCount} ");                                                                                   
                             }
                         }
                         else if (exchangeTo == 2)
@@ -93,12 +73,8 @@ static void Main(string[] args)
                             if (dollarsCount >= amountMoneyChange)
                             {
                                 dollarsCount -= amountMoneyChange;
-                                euroCount += amountMoneyChange * usdToEuro;
-                                Console.WriteLine($"На вашем счету Долларов {dollarsCount}  Евро {euroCount} ");
-                                Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
-                                Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
-                                currencySelection = Convert.ToInt32(Console.ReadLine());
-
+                                euroCount += amountMoneyChange * dollarsToEuro;
+                                Console.WriteLine($"На вашем счету Долларов {dollarsCount}  Евро {euroCount} ");                                                                                  
                             }
                         }
                         else
@@ -107,9 +83,7 @@ static void Main(string[] args)
                             isChange = false;
                         }
                         break;
-
                     case 3:
-
                         Console.WriteLine("Укажите на какую валюту вы хотите обменять?");
                         Console.WriteLine("Рубли: Нажмите 1 ");
                         Console.WriteLine("Доллары: Нажмите 2 ");
@@ -121,12 +95,8 @@ static void Main(string[] args)
                             if (euroCount >= amountMoneyChange)
                             {
                                 euroCount -= amountMoneyChange;
-                                rubleCount += amountMoneyChange * euroToRub;
-                                Console.WriteLine($"На вашем счету Евро {euroCount}  Рублей {rubleCount} ");
-                                Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
-                                Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
-                                currencySelection = Convert.ToInt32(Console.ReadLine());
-
+                                rubleCount += amountMoneyChange * ouroToRubles;
+                                Console.WriteLine($"На вашем счету Евро {euroCount}  Рублей {rubleCount} ");                                                                                
                             }
                         }
                         else if (exchangeTo == 2)
@@ -136,12 +106,8 @@ static void Main(string[] args)
                             if (euroCount >= amountMoneyChange)
                             {
                                 euroCount -= amountMoneyChange;
-                                dollarsCount += amountMoneyChange * euroToUsd;
-                                Console.WriteLine($"На вашем счету Евро {euroCount}  Долларов {dollarsCount} ");
-                                Console.WriteLine("Пожалуйста,укажите валюту которую вы хотите обменять?");
-                                Console.WriteLine("Рубли: Нажмите 1\nДоллары: Нажмите 2\nЕвро: Нажмите 3\nВыход: Нажмите 4");
-                                currencySelection = Convert.ToInt32(Console.ReadLine());
-
+                                dollarsCount += amountMoneyChange * euroToDollars;
+                                Console.WriteLine($"На вашем счету Евро {euroCount}  Долларов {dollarsCount} ");                                                                                    
                             }
                         }
                         else
@@ -150,7 +116,6 @@ static void Main(string[] args)
                             isChange = false;
                         }
                         break;
-
                     case 4:
                         Console.WriteLine("Мы благодарим вас за то что вы воспользовались нашими услугами,до новых встреч!");
                         isChange = false;
@@ -158,12 +123,10 @@ static void Main(string[] args)
                     default:
                         Console.WriteLine("Ошибка ввода!");
                         isChange = false;
-                        break;
+                        break;                      
                 }
-
-
-
+                Console.ReadKey();
+                Console.Clear();
             }
-
-
+           
         }
