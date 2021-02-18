@@ -1,0 +1,92 @@
+static void Main(string[] args)
+        {
+
+            string heroes = "IronMan";
+            string boss = "Tanos";
+            Random rand = new Random();
+
+            float healthIronMan = 700;
+            int damageRocketIronMan = 100;
+            int damageLaserIronMan = 130;
+            int plusHealthIronMan = 250;
+            int chancePlusHealth;
+            int chanseLaserAtack;
+            int armorIronMan = rand.Next(70, 100);
+            bool isDamageIronMan = true;
+            bool isLaserAtatck = false;
+             
+
+            float healthTanos = 1900;
+            int damegeHandTanos = rand.Next(100, 140);
+            int damageLegTanos = rand.Next(130, 250);
+            int armorTanos = rand.Next(45, 90);
+            int chanceLegDamage;
+            
+            while(healthIronMan >0 && healthTanos > 0)
+            {
+                if (isDamageIronMan)
+                {
+                    healthIronMan -= Convert.ToSingle(rand.Next(0, damegeHandTanos)) / 100 * armorIronMan;
+                }
+                if (isLaserAtatck)
+                {
+                    healthTanos -= rand.Next(0, damageLaserIronMan) / 100 * armorTanos;
+                    Console.Write("Laser");
+                }
+                else
+                {
+                    healthTanos -= Convert.ToSingle(rand.Next(0, damageRocketIronMan)) / 100 * armorTanos;
+                    Console.Write("Rocket");
+                }
+                
+                if(healthIronMan < 300)
+                {
+                    chancePlusHealth = rand.Next(0, 100);
+                    if(chancePlusHealth > 75)
+                    {   
+                        isDamageIronMan = false;
+                        healthIronMan += plusHealthIronMan;                    
+                        Console.Write("PlusLifeIronMan");
+                    }
+                    else
+                    {
+                        isDamageIronMan = true;
+                    }
+                    if(healthIronMan < 350 && !isDamageIronMan)
+                    {
+                        chanseLaserAtack = rand.Next(0,10);
+                        if(chanseLaserAtack > 5)
+                        {
+                            isLaserAtatck = true;
+                        }
+                        else
+                        {
+                            isLaserAtatck = false;
+                           
+                        }
+                    }
+                }
+                if(healthTanos < 400 )
+                {
+                    chanceLegDamage = rand.Next(0, 100);
+                    if(chanceLegDamage > 60)
+                    {
+                        healthIronMan -= Convert.ToSingle(rand.Next(0, damageLegTanos)) / 100 * armorIronMan;
+                    }
+                }
+                Console.WriteLine("IronMan  " + healthIronMan);
+                Console.WriteLine("Tanos  "  + healthTanos);
+            }
+
+            if (healthIronMan <= 0 && healthTanos <= 0)
+            {
+                Console.WriteLine("В этой битве нету победителя,Герои пали.");
+            } else if (healthIronMan <= 0)
+            {
+                Console.WriteLine("Мир обречен " + heroes + " пал!");
+            }else if(healthTanos <= 0)
+            {
+                Console.Write("Мир спасен " + boss + " Пал");
+            }
+           
+        }
