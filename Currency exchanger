@@ -128,7 +128,6 @@ static void Main(string[] args)
                         Console.WriteLine("Укажите на какую валюту вы хотите обменять?");
                         Console.WriteLine("Рубли: Нажмите 1 ");
                         Console.WriteLine("Доллары: Нажмите 2 ");
-                        Console.WriteLine("Укажите количество Долларов на обмен? ");
                         exchangeTo = Convert.ToInt32(Console.ReadLine());
                         if (exchangeTo == 1)
                         {
