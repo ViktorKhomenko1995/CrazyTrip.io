@@ -176,7 +176,6 @@ static void Main(string[] args)
                     case 4:
                         Console.WriteLine("Мы благодарим вас за то что вы воспользовались нашими услугами,до новых встреч!");
                         isChange = false;
-                        Console.ReadKey();
                     break;
                     default:
                         Console.WriteLine("Ошибка ввода!");
