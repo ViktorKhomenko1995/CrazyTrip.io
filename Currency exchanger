@@ -132,7 +132,7 @@ static void Main(string[] args)
                         exchangeTo = Convert.ToInt32(Console.ReadLine());
                         if (exchangeTo == 1)
                         {
-                            Console.WriteLine("Укажите количество Долларов на обмен? ");
+                            Console.WriteLine("Укажите количество Евро на обмен? ");
                             amountMoneyChange = Convert.ToSingle(Console.ReadLine());
                             if (euroCount >= amountMoneyChange)
                             {
@@ -150,7 +150,7 @@ static void Main(string[] args)
                         }
                         else if (exchangeTo == 2)
                         {
-                            Console.WriteLine("Укажите количество Долларов на обмен? ");
+                            Console.WriteLine("Укажите количество Евро на обмен? ");
                             amountMoneyChange = Convert.ToSingle(Console.ReadLine());
                             if (euroCount >= amountMoneyChange)
                             {
