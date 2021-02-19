@@ -1,0 +1,24 @@
+static void Main(string[] args)
+        {
+            int[,] array =
+            {
+                {4,4,6,4},
+                {3,9,1,6},
+                {3,3,7,5}
+            };
+            int amountNumberToSecondLine = 0;
+            int amountNumberToColumm = 0;
+
+            
+            for(int y = 0; y < array.GetLength(0); y++)
+            {
+                amountNumberToColumm += array[y, 0];
+            }
+
+            for(int x = 0;x < array.GetLength(1); x++)
+            {
+                amountNumberToSecondLine += array[1, x];
+            }
+            Console.WriteLine(amountNumberToSecondLine);
+            Console.WriteLine(amountNumberToColumm);            
+        }
