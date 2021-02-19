@@ -1,4 +1,4 @@
-static void Main(string[] args)
+ static void Main(string[] args)
         {
             int[,] array =
             {
@@ -18,7 +18,7 @@ static void Main(string[] args)
             for(int x = 0;x < array.GetLength(1); x++)
             {
                 amountNumberToSecondLine += array[1, x];
-            }
+            }            
+            Console.WriteLine(amountNumberToColumm);
             Console.WriteLine(amountNumberToSecondLine);
-            Console.WriteLine(amountNumberToColumm);            
         }
