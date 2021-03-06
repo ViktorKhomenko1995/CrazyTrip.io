@@ -1,0 +1,48 @@
+   static void Main(string[] args)
+        {
+            string userCommando;
+            int number = 0, sum = 0;
+            int[] array =  new int[0];
+           
+            bool isOpen = true;
+
+
+            while (isOpen)
+            {
+                Console.WriteLine($"Введите число или команду\nУзнать суму всех чисел,введите команду: Sum\nДля выхода,введите команду: Exit");
+                Console.SetCursorPosition(27, 0);
+                userCommando = Console.ReadLine();
+                Console.Clear();
+
+                if(int.TryParse(userCommando,out number))
+                {
+                    int[] tempArray = new int[array.Length + 1];
+                    for (int i = 0; i < array.Length;i++)
+                    {
+                        tempArray[i] = array[i];
+                      
+                    }
+                    tempArray[tempArray.Length - 1] = number;                 
+                    array = tempArray;
+                    
+                }
+
+                if(userCommando == "Sum")
+                {
+                   
+                    for(int i = 0; i < array.Length; i++)
+                    {
+                        sum += array[i];
+                    }
+                    Console.WriteLine(sum);
+                    Console.ReadKey();
+                    Console.Clear();
+                   
+                }
+
+                if (userCommando == "Exit")
+                {
+                    isOpen = false;
+                }
+            }
+        }
