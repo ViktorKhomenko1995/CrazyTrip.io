@@ -1,0 +1,22 @@
+
+        static void Main(string[] args)
+        {
+
+            int[] array = new int[30];
+            Random rand = new Random();
+
+            for (int i = 1; i < array.Length-1; i++)
+            {
+                array[i] = rand.Next(0, 100);
+                if(array[i] > array[i-1] + array[i+ 1])
+                {
+                    Console.Write(array[i] + " ");
+                }
+                else
+                {
+                    Console.Write(" ");
+                }
+               
+            }
+           
+        }
