@@ -1,25 +1,35 @@
         static void Main(string[] args)
         {
-            string userCommando;
-            int userNumber;
             bool isOpen = true;
+            string userComando = "";
+            int userNumber;
 
             while (isOpen)
             {
-                ConsoleColor defaultColor = Console.ForegroundColor;              
-                Console.WriteLine("Ведите число:");
-                userCommando = Console.ReadLine();
-                if(int.TryParse(userCommando,out userNumber))
-                {
-                    Console.Clear();
-                    Console.Write($"Ваше число: {userNumber}");
-                    isOpen = false;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Не верно!");
-                    Console.ForegroundColor = defaultColor;
-                }
+                GetNumber( userComando, out userNumber, ref isOpen);
+
             }
+            
+        }
+        static int GetNumber(  string userCommando, out int userNumber, ref bool isOPen)
+        {
+            ConsoleColor deafaultColor = Console.ForegroundColor;
+            Console.WriteLine("Введите число:");
+            userCommando = Console.ReadLine();
+            Console.Clear();
+
+            if (int.TryParse(userCommando,out userNumber))
+            {
+                Console.WriteLine($"Ваше число: " + userNumber);
+                isOPen = false;                            
+              
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Не верно!");
+                Console.ForegroundColor = deafaultColor;
+            }
+            return userNumber;
+
         }
