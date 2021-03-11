@@ -1,10 +1,10 @@
-        static void Main(string[] args)
+       static void Main(string[] args)
         {
 
             bool isOpen = true;
             int userNumber = 0;
 
-            GetNumber( userNumber, ref isOpen);
+            GetNumber(  userNumber, ref isOpen);
             
 
         }
@@ -13,13 +13,13 @@
             while (isOPen)
             {
                 
-                string userCommando;
+                string userActions;
                 ConsoleColor deafaultColor = Console.ForegroundColor;
                 Console.WriteLine("Введите число:");
-                userCommando = Console.ReadLine();
+                userActions = Console.ReadLine();
                 Console.Clear();
 
-                if (int.TryParse(userCommando, out userNumber))
+                if (int.TryParse(userActions, out userNumber))
                 {
                    
                     Console.WriteLine($"Ваше число: " + userNumber);
@@ -34,3 +34,7 @@
                 }
                
             }
+
+           
+
+        }
