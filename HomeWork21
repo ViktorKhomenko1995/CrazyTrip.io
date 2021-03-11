@@ -1,35 +1,36 @@
         static void Main(string[] args)
         {
+
             bool isOpen = true;
-            string userComando = "";
-            int userNumber;
+            int userNumber = 0;
 
-            while (isOpen)
-            {
-                GetNumber( userComando, out userNumber, ref isOpen);
-
-            }
+            GetNumber( userNumber, ref isOpen);
             
+
         }
-        static int GetNumber(  string userCommando, out int userNumber, ref bool isOPen)
+        static void GetNumber(  int userNumber, ref bool isOPen)
         {
-            ConsoleColor deafaultColor = Console.ForegroundColor;
-            Console.WriteLine("Введите число:");
-            userCommando = Console.ReadLine();
-            Console.Clear();
-
-            if (int.TryParse(userCommando,out userNumber))
+            while (isOPen)
             {
-                Console.WriteLine($"Ваше число: " + userNumber);
-                isOPen = false;                            
-              
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Не верно!");
-                Console.ForegroundColor = deafaultColor;
-            }
-            return userNumber;
+                
+                string userCommando;
+                ConsoleColor deafaultColor = Console.ForegroundColor;
+                Console.WriteLine("Введите число:");
+                userCommando = Console.ReadLine();
+                Console.Clear();
 
-        }
+                if (int.TryParse(userCommando, out userNumber))
+                {
+                   
+                    Console.WriteLine($"Ваше число: " + userNumber);
+                    isOPen = false;
+
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Не верно!");
+                    Console.ForegroundColor = deafaultColor;
+                }
+               
+            }
