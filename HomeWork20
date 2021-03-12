@@ -2,9 +2,13 @@
         {
 
             int health = 10;
+            
             int maxHealth = 10;
+            
             bool isOpen = true;
+            
             int healthPercent = 4;
+            
             int userInput;
 
             while (isOpen)
