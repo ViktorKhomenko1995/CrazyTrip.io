@@ -1,40 +1,36 @@
-       static void Main(string[] args)
-        {
+static void Main(string[] args)
+        {       
+                bool isOpen = true;
 
-            bool isOpen = true;
-            int userNumber = 0;
+                int number = 0;
 
-            GetNumber(  userNumber, ref isOpen);
+                int userNumber;
+          
+                GetNumber( out userNumber, number, ref isOpen);
+                Console.WriteLine(userNumber);
             
-
-        }
-        static void GetNumber(  int userNumber, ref bool isOPen)
-        {
-            while (isOPen)
+            static void GetNumber(  out int userNumber,int number, ref bool isOpen)
             {
-                
-                string userActions;
-                ConsoleColor deafaultColor = Console.ForegroundColor;
-                Console.WriteLine("Введите число:");
-                userActions = Console.ReadLine();
-                Console.Clear();
-
-                if (int.TryParse(userActions, out userNumber))
-                {
-                   
-                    Console.WriteLine($"Ваше число: " + userNumber);
-                    isOPen = false;
+                while (isOpen)
+                {                   
+                    string userActions;
+                    ConsoleColor deafaultColor = Console.ForegroundColor;
+                    Console.WriteLine("Введите число:");
+                    userActions = Console.ReadLine();
+                    Console.Clear();
+                    if (int.TryParse(userActions, out number))
+                    { 
+                        isOpen = false;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Не верно!");
+                        Console.ForegroundColor = deafaultColor;
+                    }
 
                 }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Не верно!");
-                    Console.ForegroundColor = deafaultColor;
-                }
-               
+                userNumber = number;
             }
-
-           
 
         }
