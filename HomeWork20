@@ -1,65 +1,71 @@
-static void Main(string[] args)
+ static void Main(string[] args)
         {
+
             int health = 10;
             int maxHealth = 10;
+            bool isOpen = true;
+            int healthPercent = 4;
+            int userInput;
 
-            while (true)
-            {
-                HealthBar(health, maxHealth, ConsoleColor.Red);
-                Console.SetCursorPosition(0, 7);
+            while (isOpen)
+            {  
+                if(health < healthPercent)
+                {
+                    GetHealth(health, maxHealth, '#', '_');
+                }
+                else if(health > healthPercent)
+                {
+                    GetHealth(health, maxHealth, '0', '_');
+                }
+                
+                Console.SetCursorPosition(0, 13);
                 Console.Write($"Количество жизней: {health}");
                 Console.SetCursorPosition(0, 5);
-                Console.Write("Отнемите или добавте количестиво жизней:");
-                health += Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
-            }         
+                Console.WriteLine($"Для рисования HealthBar,нажмите: 1.\nДля выхода,нажмите: 2.");
+                userInput = Convert.ToInt32(Console.ReadLine());
+
+                if(userInput == 1)
+                {
+                   
+                    Console.Write("Отнемите или добавте количестиво жизней:");
+                    health += Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
+                }
+                else if(userInput == 2)
+                {
+                    isOpen = false;
+                }
+                else
+                {
+                    Console.Write("Не верный ввод!");
+                    Console.Clear();
+                }
+               
+            }
 
         }
 
-        static void HealthBar(int health, int maxHealth, ConsoleColor color, char symbo = ' ')
+        static void GetHealth(int health, int maxHealth, char healthSymbol = ' ', char maxHealthSymbol = ' ')
         {
-            if(health > 6)
-            {
-                ConsoleColor deafultColor = Console.BackgroundColor;
+            
                 string bar = "";
 
                 for (int i = 0; i < health; i++)
                 {
-                    bar += " ";
-                }
-                Console.SetCursorPosition(0, 0);
-                Console.Write("[");
-                Console.BackgroundColor = color;
-                Console.Write(bar);
-                Console.BackgroundColor = deafultColor;
-
-                bar = "";
-
-                for (int i = health; i < maxHealth; i++)
-                {
-                    bar += " ";
-                }
-                Console.Write(bar + "]");
-            }
-            else
-            {
-                string bar = "";
-
-                for (int i = 0; i < health; i++)
-                {
-                    bar += "#";
+                    bar +=healthSymbol;
                 }
                 Console.SetCursorPosition(0, 0);
                 Console.Write("[");
                 Console.Write(bar);
 
+
                 bar = "";
 
                 for (int i = health; i < maxHealth; i++)
                 {
-                    bar += "_";
+                    bar += maxHealthSymbol;
                 }
                 Console.Write(bar + "]");
-            }
-           
+                     
+
         }
