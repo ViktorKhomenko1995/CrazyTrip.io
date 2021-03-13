@@ -1,11 +1,11 @@
-static void Main(string[] args)
-        {         
-           GetNumber();                     
+ static void Main(string[] args)
+        {           
+            GetNumber();
         }
-        static void GetNumber()
-        {         
+        static  int  GetNumber()
+        {
             bool isOpen = true;
-            int userNumber;
+            int userNumber = 0;
             while (isOpen)
             {
                 string userActions;
@@ -15,7 +15,7 @@ static void Main(string[] args)
                 Console.Clear();
                 if (int.TryParse(userActions, out userNumber))
                 {
-                    Console.Write($"Ваше число: {userNumber}");
+                    Console.Write($"Ваше число: {userNumber}");                   
                     isOpen = false;
                 }
                 else
@@ -24,6 +24,6 @@ static void Main(string[] args)
                     Console.WriteLine("Не верно!");
                     Console.ForegroundColor = deafaultColor;
                 }
-             
             }
+            return userNumber;                    
         }
