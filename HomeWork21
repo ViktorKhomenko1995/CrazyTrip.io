@@ -1,36 +1,29 @@
 static void Main(string[] args)
-        {       
-                bool isOpen = true;
-
-                int number = 0;
-
-                int userNumber;
-          
-                GetNumber( out userNumber, number, ref isOpen);
-                Console.WriteLine(userNumber);
-            
-            static void GetNumber(  out int userNumber,int number, ref bool isOpen)
+        {         
+           GetNumber();                     
+        }
+        static void GetNumber()
+        {         
+            bool isOpen = true;
+            int userNumber;
+            while (isOpen)
             {
-                while (isOpen)
-                {                   
-                    string userActions;
-                    ConsoleColor deafaultColor = Console.ForegroundColor;
-                    Console.WriteLine("Введите число:");
-                    userActions = Console.ReadLine();
-                    Console.Clear();
-                    if (int.TryParse(userActions, out number))
-                    { 
-                        isOpen = false;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Не верно!");
-                        Console.ForegroundColor = deafaultColor;
-                    }
-
+                string userActions;
+                ConsoleColor deafaultColor = Console.ForegroundColor;
+                Console.WriteLine("Введите число:");
+                userActions = Console.ReadLine();
+                Console.Clear();
+                if (int.TryParse(userActions, out userNumber))
+                {
+                    Console.Write($"Ваше число: {userNumber}");
+                    isOpen = false;
                 }
-                userNumber = number;
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Не верно!");
+                    Console.ForegroundColor = deafaultColor;
+                }
+             
             }
-
         }
