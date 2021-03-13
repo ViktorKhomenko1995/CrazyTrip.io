@@ -1,25 +1,24 @@
  static void Main(string[] args)
         {
-
             int health = 10;
-            
+
             int maxHealth = 10;
-            
+
             bool isOpen = true;
-            
-            int healthPercent = 4;
-            
+
+            int healthPercent = 5;
+
             int userInput;
 
             while (isOpen)
-            {  
-                if(health < healthPercent)
+            {
+                if (health < healthPercent)
                 {
-                    GetHealth(health, maxHealth, '#', '_');
+                    DrawHealthBar(health, maxHealth, '#', '_');
                 }
-                else if(health > healthPercent)
+                else
                 {
-                    GetHealth(health, maxHealth, '0', '_');
+                    DrawHealthBar(health, maxHealth, '0', '_');
                 }
                 
                 Console.SetCursorPosition(0, 13);
@@ -27,15 +26,13 @@
                 Console.SetCursorPosition(0, 5);
                 Console.WriteLine($"Для рисования HealthBar,нажмите: 1.\nДля выхода,нажмите: 2.");
                 userInput = Convert.ToInt32(Console.ReadLine());
-
-                if(userInput == 1)
+                if (userInput == 1)
                 {
-                   
                     Console.Write("Отнемите или добавте количестиво жизней:");
                     health += Convert.ToInt32(Console.ReadLine());
                     Console.Clear();
                 }
-                else if(userInput == 2)
+                else if (userInput == 2)
                 {
                     isOpen = false;
                 }
@@ -44,32 +41,22 @@
                     Console.Write("Не верный ввод!");
                     Console.Clear();
                 }
-               
             }
-
         }
-
-        static void GetHealth(int health, int maxHealth, char healthSymbol = ' ', char maxHealthSymbol = ' ')
+        static void DrawHealthBar(int health, int maxHealth, char healthSymbol = ' ', char maxHealthSymbol = ' ')
         {
-            
-                string bar = "";
-
-                for (int i = 0; i < health; i++)
-                {
-                    bar +=healthSymbol;
-                }
-                Console.SetCursorPosition(0, 0);
-                Console.Write("[");
-                Console.Write(bar);
-
-
-                bar = "";
-
-                for (int i = health; i < maxHealth; i++)
-                {
-                    bar += maxHealthSymbol;
-                }
-                Console.Write(bar + "]");
-                     
-
+            string bar = "";
+            for (int i = 0; i < health; i++)
+            {
+                bar += healthSymbol;
+            }
+            Console.SetCursorPosition(0, 0);
+            Console.Write("[");
+            Console.Write(bar);
+            bar = "";
+            for (int i = health; i < maxHealth; i++)
+            {
+                bar += maxHealthSymbol;
+            }
+            Console.Write(bar + "]");
         }
