@@ -1,8 +1,8 @@
 static void Main(string[] args)
         {
-            NightClub();           
-        }      
-        static void NightClub()
+            GetGuestList();
+        }       
+        static void GetGuestList()
         {
             int price;
             int amountMoney = 0;
@@ -14,15 +14,20 @@ static void Main(string[] args)
             clients.Enqueue("Диана");
             clients.Enqueue("Андрей");
             clients.Enqueue("Анастасия");
-
+            
             while (clients.Count > 0)
-            {               
+            {
+                Console.WriteLine("Пожалуйста заходите по очереди,не забывая платить за вход!\nСписок посетителей");
+                foreach (var item in clients)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.ReadKey();
+                Console.Clear();
                 Console.SetCursorPosition(0, 15);
                 Console.Write($"На вашем счету: {amountMoney}$");
+                Console.SetCursorPosition(0, 0);              
                 Console.SetCursorPosition(0, 0);
-                Console.WriteLine("Мы рады приветствовать вас в нашем ночном клубе!\nПожалуйста заходите по очереди,не забывая платить за вход!");
-                Console.ReadKey();
-                Console.SetCursorPosition(0, 4);
                 Console.WriteLine("Сейчас заходит:" + clients.Dequeue());
                 price = rand.Next(10, 100);
                 Console.WriteLine("Стоимость входа: " + price + "$");
