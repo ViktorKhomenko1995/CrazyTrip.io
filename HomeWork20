@@ -1,26 +1,24 @@
- static void Main(string[] args)
+static void Main(string[] args)
         {
             int health = 10;
-
             int maxHealth = 10;
-
             bool isOpen = true;
-
             int healthPercent = 5;
-
             int userInput;
-
+            char changeChar;
+            char standartChar = '_';           
             while (isOpen)
-            {
-                if (health < healthPercent)
+            {            
+                if(health < healthPercent)
                 {
-                    DrawHealthBar(health, maxHealth, '#', '_');
+                    changeChar = '#';
                 }
                 else
                 {
-                    DrawHealthBar(health, maxHealth, '0', '_');
+                    changeChar = '0';
                 }
                 
+                DrawBar(health, maxHealth, changeChar,standartChar);  
                 Console.SetCursorPosition(0, 13);
                 Console.Write($"Количество жизней: {health}");
                 Console.SetCursorPosition(0, 5);
@@ -43,7 +41,7 @@
                 }
             }
         }
-        static void DrawHealthBar(int health, int maxHealth, char healthSymbol = ' ', char maxHealthSymbol = ' ')
+        static void DrawBar(int health, int maxHealth, char healthSymbol = ' ', char maxValue = ' ')
         {
             string bar = "";
             for (int i = 0; i < health; i++)
@@ -56,7 +54,7 @@
             bar = "";
             for (int i = health; i < maxHealth; i++)
             {
-                bar += maxHealthSymbol;
+                bar += maxValue;
             }
             Console.Write(bar + "]");
         }
