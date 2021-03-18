@@ -1,8 +1,8 @@
- static void Main(string[] args)
+static void Main(string[] args)
         {
-            GuestList();
+            ServeCustomers();
         }
-        static void GuestList()
+        static void ServeCustomers()
         {
             int price;
             int amountMoney = 0;
@@ -36,3 +36,4 @@
                 Console.Clear();
             }
         }
+
