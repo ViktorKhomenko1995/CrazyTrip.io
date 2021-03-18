@@ -4,9 +4,11 @@ static void Main(string[] args)
         }
         static void ServeCustomers()
         {
-            int price;
+
             int amountMoney = 0;
             Random rand = new Random();
+            List<int> price = new List<int>(6);
+            price.AddRange(new int[] { 30, 15, 40, 29, 50, 10 });
             Queue<string> clients = new Queue<string>(6);
             clients.Enqueue("Виктор");
             clients.Enqueue("Ольга");
@@ -14,7 +16,7 @@ static void Main(string[] args)
             clients.Enqueue("Диана");
             clients.Enqueue("Андрей");
             clients.Enqueue("Анастасия");
-
+            
             while (clients.Count > 0)
             {
                 Console.WriteLine("Пожалуйста заходите по очереди,не забывая платить за вход!\nСписок посетителей");
@@ -24,16 +26,16 @@ static void Main(string[] args)
                 }
                 Console.ReadKey();
                 Console.Clear();
+
                 Console.SetCursorPosition(0, 15);
                 Console.Write($"На вашем счету: {amountMoney}$");
-                Console.SetCursorPosition(0, 0);
+
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Сейчас заходит:" + clients.Dequeue());
-                price = rand.Next(10, 100);
-                Console.WriteLine("Стоимость входа: " + price + "$");
-                amountMoney += price;
+                Console.WriteLine("Цена за вход:" + price[0]);
+                amountMoney += price[0];
+                price.RemoveAt(0);             
                 Console.ReadKey();
                 Console.Clear();
             }
         }
-
