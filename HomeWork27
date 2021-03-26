@@ -1,0 +1,29 @@
+static void Main(string[] args)
+        {
+            List<int> listNumber = new List<int>();
+            string userInput = "";
+            int userNumber;
+            int sum = 0;
+
+            while(userInput.ToLower() != "exit")
+            {
+                Console.WriteLine("Введите число или команду\nДля выхода введите: Exit\nВывести суму всех чисел: Sum");
+                userInput = Console.ReadLine();
+
+                 if(int.TryParse(userInput,out userNumber))
+                 {
+                    listNumber.AddRange(new int[] { userNumber });
+                 }
+                 if(userInput.ToLower() == "sum")
+                 {
+                    for(int i = 0; i < listNumber.Count;i++)
+                    {
+                        sum += listNumber[i];     
+                    }
+                    Console.WriteLine("Сума всех чисел " + sum);
+                    Console.ReadKey();
+                    listNumber.Clear();
+                 }      
+                Console.Clear();             
+            }           
+        }
