@@ -1,0 +1,56 @@
+static void Main(string[] args)
+        {           
+            EmployeeInformation();
+        }
+        static void EmployeeInformation()
+        {
+            Dictionary<string, string> employeeDossier = new Dictionary<string, string>();
+            employeeDossier.Add("Хоменко Виктор Богданович", "Студент");
+            int userInput;
+            bool isOpen = true;
+
+            while (isOpen)
+            {
+                Console.WriteLine("Добавить досье,нажмите 1\nВывести все досье,нажмите 2.\nУдалить досье,нажмите 3.\nВыход,нажмите 4.");
+                userInput = Convert.ToInt32(Console.ReadLine());
+                switch (userInput)
+                {
+                    case 1:
+                        string userInformations;
+                        string userPosition;
+                        Console.WriteLine("Введите ФИО!");
+                        userInformations = Console.ReadLine();
+                        Console.WriteLine("Введите должность!");
+                        userPosition = Console.ReadLine();
+                        employeeDossier.Add(userInformations, userPosition);
+                        Console.ReadKey();
+                        Console.Clear();                      
+                        break;
+                    case 2:
+                      foreach(var mans in employeeDossier)
+                        {
+                            Console.Write($"{mans.Key},{mans.Value}-");
+                        }
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;                     
+                    case 3:
+                        string deleteInformation;
+                        Console.WriteLine("Введите ФИО человека,досье котрого хотите удалить");
+                        deleteInformation = Console.ReadLine();
+                        employeeDossier.Remove(deleteInformation);
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 4:
+                        isOpen = false;
+                        break;
+                    default:
+                        Console.WriteLine("Не верный ввод!");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                }
+            }
+            Console.ReadKey();         
+        }
