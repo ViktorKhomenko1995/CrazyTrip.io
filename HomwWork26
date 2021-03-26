@@ -1,0 +1,36 @@
+ static void Main(string[] args)
+        {
+            Dictionary<string, int> ratingUfs = new Dictionary<string, int>();
+            ratingUfs.Add("Хабиб", 29);
+            ratingUfs.Add("Дастин", 27);
+            ratingUfs.Add("Джастин",22);
+            ratingUfs.Add("Чарльз", 30);
+            ratingUfs.Add("Конор", 22);
+            ratingUfs.Add("Тони", 25);
+            string userInput = "";
+            bool isOpen = true;
+
+            while (isOpen)
+            {
+                Console.WriteLine("Введите имя Бойца чтобы просмотреть статистику побед!\nДля выхода введите команду: Exit\nСписок бойцов:");
+                foreach(var fighter in ratingUfs.Keys)
+                {
+                    Console.WriteLine(fighter);
+                }
+                userInput = Console.ReadLine();
+
+                if (ratingUfs.ContainsKey(userInput))
+                {
+                    Console.WriteLine($"Количество побед {ratingUfs[userInput]}");
+                }else if( userInput.ToLower() == "exit")
+                {
+                    isOpen = false;
+                }
+                else
+                {
+                    Console.WriteLine("Такого бойца нету!!!");
+                }                        
+                Console.ReadKey();
+                Console.Clear();             
+            }         
+        }
