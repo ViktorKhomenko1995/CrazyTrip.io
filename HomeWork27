@@ -1,4 +1,4 @@
- static void Main(string[] args)
+static void Main(string[] args)
         {
             List<int> numbers = new List<int>();
             string userInput = "";
@@ -6,7 +6,7 @@
             int sum = 0;
 
             while (userInput.ToLower() != "exit")
-            {
+            {              
                 Console.WriteLine("Введите число или команду\nДля выхода введите: Exit\nВывести суму всех чисел: Sum");
                 userInput = Console.ReadLine();
 
@@ -22,6 +22,7 @@
                     }
                     Console.WriteLine("Сума всех чисел " + sum);
                     Console.ReadKey();
+                    sum = 0;
                 }
                 Console.Clear();
             }
