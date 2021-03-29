@@ -1,0 +1,22 @@
+ static void Main(string[] args)
+        {
+            int[] arrayNumber = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int[] mixArray = arrayNumber;       
+            ShuffleArray(ref arrayNumber);
+            for(int i = 0; i < mixArray.Length;i++)
+            {
+                Console.WriteLine(mixArray[i]);
+            }
+        }           
+        static void ShuffleArray(ref int[] arrayNumber)
+        {
+            Random rand = new Random();
+            for(int i = 0; i < arrayNumber.Length; i++)
+            {
+                int currenValue = arrayNumber[i];
+                int randmIndex = rand.Next(i, arrayNumber.Length);
+                arrayNumber[i] = arrayNumber[randmIndex];
+                arrayNumber[randmIndex] = currenValue;
+            }
+            
+        }
