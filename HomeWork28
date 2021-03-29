@@ -1,56 +1,83 @@
-static void Main(string[] args)
-        {           
-            EmployeeInformation();
-        }
-        static void EmployeeInformation()
+ static void Main(string[] args)
         {
-            Dictionary<string, string> employeeDossier = new Dictionary<string, string>();
-            employeeDossier.Add("Хоменко Виктор Богданович", "Студент");
-            int userInput;
+            DossierStaff();
+        }           
+       static void DossierStaff()
+       {
+            Dictionary<string, string> dossierEmployee = new Dictionary<string, string>();
+            dossierEmployee.Add("Хоменко","Виктор Богдановчич Студент");
             bool isOpen = true;
-
+            int userInput;
+           
             while (isOpen)
             {
-                Console.WriteLine("Добавить досье,нажмите 1\nВывести все досье,нажмите 2.\nУдалить досье,нажмите 3.\nВыход,нажмите 4.");
+                Console.WriteLine("Добавить досье: 1.\nВывести все досье:2.\nУдалить досье: 3.\nВыход: 4.");
+               
                 userInput = Convert.ToInt32(Console.ReadLine());
                 switch (userInput)
                 {
                     case 1:
-                        string userInformations;
-                        string userPosition;
-                        Console.WriteLine("Введите ФИО!");
-                        userInformations = Console.ReadLine();
-                        Console.WriteLine("Введите должность!");
-                        userPosition = Console.ReadLine();
-                        employeeDossier.Add(userInformations, userPosition);
-                        Console.ReadKey();
-                        Console.Clear();                      
-                        break;
-                    case 2:
-                      foreach(var mans in employeeDossier)
+                        string userSecondName;
+                        string userInformation;
+                        Console.Clear();
+                        Console.WriteLine("Введите фамилию");
+                        userSecondName = Console.ReadLine();
+                        Console.WriteLine("Введите через пробел: Имя,Отчество и Должность");
+                        userInformation = Console.ReadLine();
+                        if (!dossierEmployee.ContainsKey(userSecondName))
                         {
-                            Console.Write($"{mans.Key},{mans.Value}-");
+                            dossierEmployee.Add(userSecondName, userInformation);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Такая фамилия уже есть!");
+                            
                         }
                         Console.ReadKey();
                         Console.Clear();
-                        break;                     
-                    case 3:
-                        string deleteInformation;
-                        Console.WriteLine("Введите ФИО человека,досье котрого хотите удалить");
-                        deleteInformation = Console.ReadLine();
-                        employeeDossier.Remove(deleteInformation);
+                        break;
+                    case 2:
+                        Console.Clear();
+                         foreach( var staff in dossierEmployee)
+                         {
+                            Console.WriteLine($" {staff.Key} {staff.Value}");
+                         }
                         Console.ReadKey();
                         Console.Clear();
                         break;
+                    case 3:
+                        Console.Clear();
+                        string removeSecondName;
+                        Console.WriteLine("Введите фамилию сотрудника,досье которого хотите удалить!");
+                        removeSecondName = Console.ReadLine();
+                        if (dossierEmployee.ContainsKey(removeSecondName))
+                        {
+                            dossierEmployee.Remove(removeSecondName);
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Сотрудника с такой фамилией не найдено!");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        break;
                     case 4:
+                        Console.Clear();
+                        Console.WriteLine("Выход");
                         isOpen = false;
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Не верный ввод!");
                         Console.ReadKey();
                         Console.Clear();
                         break;
                 }
             }
-            Console.ReadKey();         
-        }
+            
+            
+       }
+     
