@@ -1,0 +1,35 @@
+ class Program
+    {
+        static void Main(string[] args)
+        {
+            Player player = new Player();            
+            player.ShowInfoPlayer();
+            Console.ReadKey();
+                        
+        }
+
+        class Player
+        {
+            private string _namePlayer;
+            private int _levelPlayer;
+            private int _damagePlayer;
+            private int _armorPlayer;
+            private int _speedPlayer;  
+            
+
+           public Player()
+            {
+                _namePlayer = "Viktor;";
+                _levelPlayer = 99;
+                _damagePlayer = 270;
+                _armorPlayer = 190;
+                _speedPlayer = 45;
+            }
+
+            public void  ShowInfoPlayer()
+            {
+                Console.WriteLine($"Имя игрока: {_namePlayer}.\nУровень игрока: {_levelPlayer}.\nУрон игрока: {_damagePlayer}.\nЗащита игока: {_armorPlayer}.\nСкорость игрока: {_speedPlayer}.");
+            }
+        }
+             
+    }
