@@ -1,4 +1,4 @@
- class Program
+class Program
     {
         static void Main(string[] args)
         {
@@ -14,7 +14,7 @@
             private int _level;
             private int _damage;
             private int _armor;
-            private int speed;
+            private int _speed;
 
 
             public Player()
@@ -23,12 +23,12 @@
                 _level = 99;
                 _damage = 270;
                 _armor = 190;
-                speed = 45;
+                _speed = 45;
             }
 
             public void ShowInfoPlayer()
             {
-                Console.WriteLine($"Имя игрока: {_namePlayer}.\nУровень игрока: {_level}.\nУрон игрока: {_damage}.\nЗащита игока: {_armor}.\nСкорость игрока: {speed}.");
+                Console.WriteLine($"Имя игрока: {_namePlayer}.\nУровень игрока: {_level}.\nУрон игрока: {_damage}.\nЗащита игока: {_armor}.\nСкорость игрока: {_speed}.");
             }
         }
 
