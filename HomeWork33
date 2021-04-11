@@ -1,0 +1,74 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int firstHeroesIndex;
+            int seconHeroesIndex;
+            SuperHero[] superHero = { new SuperHero("IronMan", 400, 80, 70),new SuperHero("CaptainAmerica",500,90,50),new SuperHero("SpiderMan",300,100,90),new SuperHero("Thanos",600,120,40),new SuperHero("Thor",550,75,65) };
+            for (int i = 0; i < superHero.Length; i++)
+            {
+                Console.WriteLine(i+1 + " ");
+                superHero[i].ShowStats();
+                
+                
+            }
+            Console.WriteLine("Выберите первого героя");
+            firstHeroesIndex = Convert.ToInt32(Console.ReadLine());
+            SuperHero firstHeroes = superHero[firstHeroesIndex -1];
+            Console.WriteLine("Выберите второго бойца");
+            seconHeroesIndex = Convert.ToInt32(Console.ReadLine());
+            SuperHero secondHeroes = superHero[seconHeroesIndex -1];
+
+            while(firstHeroes.Health >0 && secondHeroes.Health > 0)
+            {
+                firstHeroes.TakeDamage(secondHeroes.Damage);
+                secondHeroes.TakeDamage(firstHeroes.Damage);
+                firstHeroes.ShowStats();
+                secondHeroes.ShowStats();
+            }
+            Console.ReadKey();          
+        }        
+
+    }
+
+    class SuperHero
+    {
+        private string _name;
+        private int _health;
+        private int _damage;
+        private int _armor;
+
+        public SuperHero(string name ,int health,int damage,int armor)
+        {
+            _name = name;
+            _health = health;
+            _damage = damage;
+            _armor = armor;
+        }
+
+        public int Health
+        {
+            get
+            {
+                return _health;
+            }
+        }
+
+        public int Damage
+        {
+            get
+            {
+                return _damage;
+            }
+        }
+    
+        public void ShowStats()
+        {
+            Console.WriteLine($"{_name} -HP:{_health} - DMG: {_damage} - Armor: {_armor}");
+        }
+
+        public void TakeDamage(int damage)
+        {
+            _health -= damage;
+        }
+    }    
